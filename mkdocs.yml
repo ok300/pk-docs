@@ -1,0 +1,31 @@
+site_name: Pubky Docs
+
+theme:
+  name: material
+  palette:
+    - toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.footer
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.snippets
+
+nav:
+  - Intro: index.md
+  - PKARR:
+      - Intro: pkarr/00_intro.md
+      - Get Started: pkarr/01_get_started.md
+      - Initialize Client: pkarr/02_init_client.md
+      - Resolve Record: pkarr/03_resolve_record.md
+      - Publish Record: pkarr/04_publish_record.md
+      - Connect with PKDNS TLS: pkarr/05_connect_tls.md
+      - Serve PKDNS TLS: pkarr/06_serve_tls.md
