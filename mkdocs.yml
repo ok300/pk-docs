@@ -22,13 +22,13 @@ markdown_extensions:
 nav:
   - Intro: index.md
   - PKARR:
-      - Intro: pkarr/00_intro.md
-      - Get Started: pkarr/01_get_started.md
-      - Initialize Client: pkarr/02_init_client.md
-      - Resolve Record: pkarr/03_resolve_record.md
-      - Publish Record: pkarr/04_publish_record.md
-      - Connect with PKDNS TLS: pkarr/05_connect_tls.md
-      - Serve PKDNS TLS: pkarr/06_serve_tls.md
+      - Intro: 00_pkarr/00_intro.md
+      - Get Started: 00_pkarr/01_get_started.md
+      - Initialize Client: 00_pkarr/02_init_client.md
+      - Resolve Record: 00_pkarr/03_resolve_record.md
+      - Publish Record: 00_pkarr/04_publish_record.md
+      - Connect with PKDNS TLS: 00_pkarr/05_connect_tls.md
+      - Serve PKDNS TLS: 00_pkarr/06_serve_tls.md
   - Pubky Client:
       - Intro: pubky_client/00_intro.md
   - Pubky App:
