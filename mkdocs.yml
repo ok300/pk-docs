@@ -34,4 +34,4 @@ nav:
   - Pubky App:
       - Intro: 02_pubky_app/00_intro.md
   - Build Your Own App:
-      - Intro: build_own_app/00_intro.md
+      - Intro: 03_build_own_app/00_intro.md
