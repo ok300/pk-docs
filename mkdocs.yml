@@ -29,3 +29,9 @@ nav:
       - Publish Record: pkarr/04_publish_record.md
       - Connect with PKDNS TLS: pkarr/05_connect_tls.md
       - Serve PKDNS TLS: pkarr/06_serve_tls.md
+  - Pubky Client:
+      - Intro: pubky_client/00_intro.md
+  - Pubky App:
+      - Intro: pubky_app/00_intro.md
+  - Build Your Own App:
+      - Intro: build_own_app/00_intro.md
