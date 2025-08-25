@@ -30,7 +30,7 @@ nav:
       - Connect with PKDNS TLS: 00_pkarr/05_connect_tls.md
       - Serve PKDNS TLS: 00_pkarr/06_serve_tls.md
   - Pubky Client:
-      - Intro: pubky_client/00_intro.md
+      - Intro: 01_pubky_client/00_intro.md
   - Pubky App:
       - Intro: pubky_app/00_intro.md
   - Build Your Own App:
