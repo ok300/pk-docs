@@ -32,6 +32,6 @@ nav:
   - Pubky Client:
       - Intro: 01_pubky_client/00_intro.md
   - Pubky App:
-      - Intro: pubky_app/00_intro.md
+      - Intro: 02_pubky_app/00_intro.md
   - Build Your Own App:
       - Intro: build_own_app/00_intro.md
