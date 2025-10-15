@@ -37,6 +37,9 @@ nav:
       - PUT - Store Data: 01_pubky_sdk/04_put.md
       - GET - Retrieve Data: 01_pubky_sdk/05_get.md
       - DELETE - Remove Data: 01_pubky_sdk/06_delete.md
+      - Storage API: 01_pubky_sdk/07_storage_api.md
+      - PKDNS: 01_pubky_sdk/08_pkdns.md
+      - QR Auth: 01_pubky_sdk/09_qr_auth.md
   - Pubky App:
       - Intro: 02_pubky_app/00_intro.md
   - Build Your Own App:
