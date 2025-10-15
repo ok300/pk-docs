@@ -1,11 +1,12 @@
 [package]
 name = "pkarr-snippets"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
 # --8<-- [start:pkarr-deps]
-pkarr = { version = "5.0.0" }
+pkarr = { version = "5.0.0", features = ["full-client"] }
+rand = "0.8"
 # --8<-- [end:pkarr-deps]
 reqwest = "0.12"
 tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
