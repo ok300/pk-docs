@@ -6,7 +6,7 @@ To be able to re-use the client's internal caches, it's best practice to use a s
 --8<-- "snippets/pkarr/src/main.rs:init_pkarr_client"
 ```
 
-The client builder allows you to optionally customize the client's behavior. For example, the amount of DHT records to cache, as well as their TTL:
+The client builder allows you to optionally customize the client's behavior. For example, you can configure the cache, add custom relays and bootstrap nodes, and set a custom request timeout:
 
 ```rust
 --8<-- "snippets/pkarr/src/main.rs:init_pkarr_client_with_opts"
