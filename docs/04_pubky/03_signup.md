@@ -1,6 +1,6 @@
 # Signup
 
-Before you can store data on a homeserver, you need to sign up with that homeserver using your keypair. In Pubky v0.6.0-rc.6, you first create a `PubkySigner` from your keypair, then use it to sign up.
+Before you can store data on a homeserver, you need to sign up with that homeserver using your keypair. In Pubky, you first create a `PubkySigner` from your keypair, then use it to sign up.
 
 ```rust
 --8<-- "snippets/pubky/src/main.rs:signup"

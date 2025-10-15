@@ -1,6 +1,6 @@
 # PUT - Store Data
 
-To store data on a homeserver, use the `put` method on the session's storage. In Pubky v0.6.0-rc.6, you work with a `PubkySession` that provides authenticated access.
+To store data on a homeserver, use the `put` method on the session's storage. In Pubky, you work with a `PubkySession` that provides authenticated access.
 
 ```rust
 --8<-- "snippets/pubky/src/main.rs:put"
