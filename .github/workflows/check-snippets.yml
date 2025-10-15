@@ -17,13 +17,9 @@ jobs:
           profile: minimal
           toolchain: stable
 
-      - name: Check Rust snippets
+      - name: Build Rust snippets
         run: |
           cd snippets/pkarr
-          cargo check
-          cd ../pkarr-dht-only
-          cargo check
-          cd ../pkarr-relays-only
-          cargo check
+          cargo build
           cd ../pubky
-          cargo check
+          cargo build

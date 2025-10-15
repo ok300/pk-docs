@@ -3,9 +3,10 @@ name = "pubky-snippets"
 version = "0.1.0"
 edition = "2021"
 
-[dependencies]
+[dependencies] # pubky-deps
 pubky = "0.6.0-rc.6"
 pkarr = "3.10.0"
 tokio = { version = "1", features = ["full"] }
 anyhow = "1.0"
 simple-dns = "0.9.3"
+# pubky-deps
