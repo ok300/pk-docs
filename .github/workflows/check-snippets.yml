@@ -25,3 +25,5 @@ jobs:
           cargo check
           cd ../pkarr-relays-only
           cargo check
+          cd ../pubky
+          cargo check

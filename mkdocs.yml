@@ -35,3 +35,11 @@ nav:
       - Intro: 02_pubky_app/00_intro.md
   - Build Your Own App:
       - Intro: 03_build_own_app/00_intro.md
+  - Pubky:
+      - Intro: 04_pubky/00_intro.md
+      - Get Started: 04_pubky/01_get_started.md
+      - Initialize Client: 04_pubky/02_init_client.md
+      - Signup: 04_pubky/03_signup.md
+      - PUT - Store Data: 04_pubky/04_put.md
+      - GET - Retrieve Data: 04_pubky/05_get.md
+      - DELETE - Remove Data: 04_pubky/06_delete.md
