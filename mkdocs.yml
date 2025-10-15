@@ -29,17 +29,15 @@ nav:
       - Publish Record: 00_pkarr/04_publish_record.md
       - Connect with PKDNS TLS: 00_pkarr/05_connect_tls.md
       - Serve PKDNS TLS: 00_pkarr/06_serve_tls.md
-  - Pubky Client:
-      - Intro: 01_pubky_client/00_intro.md
+  - Pubky SDK:
+      - Intro: 01_pubky_sdk/00_intro.md
+      - Get Started: 01_pubky_sdk/01_get_started.md
+      - Initialize Client: 01_pubky_sdk/02_init_client.md
+      - Signup: 01_pubky_sdk/03_signup.md
+      - PUT - Store Data: 01_pubky_sdk/04_put.md
+      - GET - Retrieve Data: 01_pubky_sdk/05_get.md
+      - DELETE - Remove Data: 01_pubky_sdk/06_delete.md
   - Pubky App:
       - Intro: 02_pubky_app/00_intro.md
   - Build Your Own App:
       - Intro: 03_build_own_app/00_intro.md
-  - Pubky:
-      - Intro: 04_pubky/00_intro.md
-      - Get Started: 04_pubky/01_get_started.md
-      - Initialize Client: 04_pubky/02_init_client.md
-      - Signup: 04_pubky/03_signup.md
-      - PUT - Store Data: 04_pubky/04_put.md
-      - GET - Retrieve Data: 04_pubky/05_get.md
-      - DELETE - Remove Data: 04_pubky/06_delete.md
