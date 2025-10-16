@@ -11,6 +11,7 @@ To connect to a PKDNS TLS endpoint, you can use a Pkarr public key as the URL wi
 ```
 
 This example demonstrates:
+
 - Using a Pkarr public key as a URL (e.g., `https://<public_key>/`)
 - Creating a `reqwest` client with PKDNS TLS support using the PKARR client
 - Making HTTP requests over the TLS-secured connection to the Pkarr domain
@@ -24,6 +25,7 @@ To serve your own PKDNS TLS service, you can run an HTTP server with TLS using y
 ```
 
 This example demonstrates:
+
 - Generating a keypair for the server identity
 - Publishing server DNS records (HTTPS SVCB and address records) to the DHT
 - Running an HTTPS server with TLS using the keypair's self-signed certificate
