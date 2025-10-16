@@ -1,7 +1,11 @@
-use std::{error::Error, sync::Arc, time::Duration};
+use std::{error::Error, net::SocketAddr, sync::Arc, time::Duration};
 
+use axum::{routing::get, Router};
+use axum_server::tls_rustls::RustlsConfig;
+use pkarr::dns::rdata::SVCB;
 use pkarr::InMemoryCache;
-use pkarr::{Client, Keypair, SignedPacket};
+use pkarr::{Client, Keypair, PublicKey, SignedPacket};
+use reqwest::Method;
 use url::Url;
 
 fn main() {}
@@ -73,22 +77,25 @@ async fn publish_record() -> Result<(), Box<dyn Error>> {
 #[allow(dead_code)]
 // --8<-- [start:connect_pkdns_tls]
 async fn connect_pkdns_tls() -> Result<(), Box<dyn Error>> {
-    // Create a client with a PKDNS TLS relay endpoint
-    let client = Client::builder()
-        .relays(&[Url::parse("https://pkdns.example.com")?])?
-        .build()?;
+    // Example URL using a Pkarr public key (PKDNS TLS)
+    let url = "https://9fdaa3b3cb04f24328975a4862419d2a2a46639c33659a101f653457a40b9d16/";
 
-    // Resolve a public key through the TLS-secured connection
-    let pk = "9fdaa3b3cb04f24328975a4862419d2a2a46639c33659a101f653457a40b9d16";
+    // Create a Reqwest client with PKDNS TLS support
+    let reqwest_client = if PublicKey::try_from(url).is_err() {
+        // If it is not a Pkarr domain, use normal Reqwest
+        reqwest::Client::new()
+    } else {
+        // Build a PKARR client
+        let client = Client::builder().build()?;
+        // Use the PKARR client with Reqwest for PKDNS TLS
+        reqwest::ClientBuilder::from(client).build()?
+    };
 
-    match client.resolve(&pk.parse()?).await {
-        Some(signed_packet) => {
-            println!("Resolved packet via TLS: {signed_packet:?}");
-        }
-        None => {
-            println!("No record found for the public key");
-        }
-    }
+    println!("GET {url}..");
+    let response = reqwest_client.request(Method::GET, url).send().await?;
+
+    let body = response.text().await?;
+    println!("{body}");
 
     Ok(())
 }
@@ -97,27 +104,55 @@ async fn connect_pkdns_tls() -> Result<(), Box<dyn Error>> {
 #[allow(dead_code)]
 // --8<-- [start:serve_pkdns_tls]
 async fn serve_pkdns_tls() -> Result<(), Box<dyn Error>> {
-    // Note: This is a conceptual example of setting up a PKDNS TLS service.
-    // In practice, you would need to implement a full relay server with TLS support.
+    // Generate a keypair for the server
+    let keypair = Keypair::random();
     
-    println!("Setting up PKDNS TLS service...");
+    // Create a PKARR client for publishing DNS records
+    let client = Client::builder().build()?;
     
-    // Example configuration for a PKDNS TLS service:
-    // - Bind to a specific address (e.g., 0.0.0.0:443)
-    // - Load TLS certificates
-    // - Listen for incoming TLS connections
-    // - Parse and respond to PKARR resolution requests
+    // Define the server address
+    let addr: SocketAddr = "127.0.0.1:8443".parse()?;
     
-    println!("PKDNS TLS service configuration:");
-    println!("  - Listen address: 0.0.0.0:443");
-    println!("  - TLS enabled: true");
-    println!("  - Certificate path: /path/to/cert.pem");
-    println!("  - Key path: /path/to/key.pem");
+    println!("Server listening on {addr}");
     
-    // The actual server implementation would use a framework like tokio, hyper, or axum
-    // to handle HTTP/2 or HTTP/3 connections with TLS and respond to DNS queries.
+    // Publish server information to the DHT
+    // This makes the server discoverable via PKDNS
+    publish_server_pkarr(&client, &keypair, &addr).await?;
     
-    println!("PKDNS TLS service would be running...");
+    println!("Server running on https://{}", keypair.public_key());
+    
+    // Set up the HTTPS server with TLS using the keypair
+    let server = axum_server::bind_rustls(
+        addr,
+        RustlsConfig::from_config(Arc::new(keypair.to_rpk_rustls_server_config())),
+    );
+    
+    // Create a simple router
+    let app = Router::new().route("/", get(|| async { "Hello, world!" }));
+    
+    // Run the server
+    server.serve(app.into_make_service()).await?;
+    
+    Ok(())
+}
+
+async fn publish_server_pkarr(
+    client: &Client,
+    keypair: &Keypair,
+    socket_addr: &SocketAddr,
+) -> Result<(), Box<dyn Error>> {
+    // Create SVCB record for HTTPS service
+    let mut svcb = SVCB::new(0, ".".try_into()?);
+    svcb.set_port(socket_addr.port());
+    
+    // Build and sign a DNS packet with HTTPS and address records
+    let signed_packet = SignedPacket::builder()
+        .https(".".try_into()?, svcb, 60 * 60)
+        .address(".".try_into()?, socket_addr.ip(), 60 * 60)
+        .sign(&keypair)?;
+    
+    // Publish the packet to the DHT
+    client.publish(&signed_packet, None).await?;
     
     Ok(())
 }

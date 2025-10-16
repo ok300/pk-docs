@@ -4,34 +4,36 @@ PKDNS TLS (Public Key DNS over TLS) provides a secure DNS-over-TLS service for r
 
 ## Connecting to a PKDNS TLS Endpoint
 
-To connect to a PKDNS TLS endpoint, you can use the PKARR client with a relay that supports TLS connections. The client can query DNS records securely through the TLS-enabled relay.
+To connect to a PKDNS TLS endpoint, you can use a Pkarr public key as the URL with `reqwest`. The PKARR client integration with `reqwest` automatically handles the DNS resolution and TLS connection.
 
 ```rust
 --8<-- "snippets/pkarr/src/main.rs:connect_pkdns_tls"
 ```
 
 This example demonstrates:
-- Creating a client configured with a PKDNS TLS relay endpoint
-- Resolving a public key through the TLS-secured connection
-- Handling the response packet
+- Using a Pkarr public key as a URL (e.g., `https://<public_key>/`)
+- Creating a `reqwest` client with PKDNS TLS support using the PKARR client
+- Making HTTP requests over the TLS-secured connection to the Pkarr domain
 
 ## Serving a PKDNS TLS Service
 
-To serve your own PKDNS TLS service, you need to set up a relay that accepts TLS connections and responds to PKARR resolution requests. This involves configuring a server with TLS certificates and implementing the PKDNS protocol.
+To serve your own PKDNS TLS service, you can run an HTTP server with TLS using your keypair and publish the server information to the DHT. This makes your service accessible via its public key.
 
 ```rust
 --8<-- "snippets/pkarr/src/main.rs:serve_pkdns_tls"
 ```
 
 This example demonstrates:
-- Setting up a basic PKDNS TLS service configuration
-- Listening for TLS-encrypted DNS queries
-- Responding to PKARR record resolution requests
+- Generating a keypair for the server identity
+- Publishing server DNS records (HTTPS SVCB and address records) to the DHT
+- Running an HTTPS server with TLS using the keypair's self-signed certificate
+- Making the service accessible via `https://<public_key>/`
 
 !!! note
     When deploying a PKDNS TLS service in production, ensure you:
     
-    - Use valid TLS certificates from a trusted certificate authority
+    - Republish the DNS records periodically (recommended: every hour) and when the server address changes
+    - Use a public IP address if you want the service to be accessible from other networks
     - Configure appropriate timeout and connection limits
     - Implement rate limiting to prevent abuse
     - Monitor and log service activity for security and debugging
