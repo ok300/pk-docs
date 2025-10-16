@@ -69,3 +69,56 @@ async fn publish_record() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 // --8<-- [end:publish_record]
+
+#[allow(dead_code)]
+// --8<-- [start:connect_pkdns_tls]
+async fn connect_pkdns_tls() -> Result<(), Box<dyn Error>> {
+    // Create a client with a PKDNS TLS relay endpoint
+    let client = Client::builder()
+        .relays(&[Url::parse("https://pkdns.example.com")?])?
+        .build()?;
+
+    // Resolve a public key through the TLS-secured connection
+    let pk = "9fdaa3b3cb04f24328975a4862419d2a2a46639c33659a101f653457a40b9d16";
+
+    match client.resolve(&pk.parse()?).await {
+        Some(signed_packet) => {
+            println!("Resolved packet via TLS: {signed_packet:?}");
+        }
+        None => {
+            println!("No record found for the public key");
+        }
+    }
+
+    Ok(())
+}
+// --8<-- [end:connect_pkdns_tls]
+
+#[allow(dead_code)]
+// --8<-- [start:serve_pkdns_tls]
+async fn serve_pkdns_tls() -> Result<(), Box<dyn Error>> {
+    // Note: This is a conceptual example of setting up a PKDNS TLS service.
+    // In practice, you would need to implement a full relay server with TLS support.
+    
+    println!("Setting up PKDNS TLS service...");
+    
+    // Example configuration for a PKDNS TLS service:
+    // - Bind to a specific address (e.g., 0.0.0.0:443)
+    // - Load TLS certificates
+    // - Listen for incoming TLS connections
+    // - Parse and respond to PKARR resolution requests
+    
+    println!("PKDNS TLS service configuration:");
+    println!("  - Listen address: 0.0.0.0:443");
+    println!("  - TLS enabled: true");
+    println!("  - Certificate path: /path/to/cert.pem");
+    println!("  - Key path: /path/to/key.pem");
+    
+    // The actual server implementation would use a framework like tokio, hyper, or axum
+    // to handle HTTP/2 or HTTP/3 connections with TLS and respond to DNS queries.
+    
+    println!("PKDNS TLS service would be running...");
+    
+    Ok(())
+}
+// --8<-- [end:serve_pkdns_tls]
