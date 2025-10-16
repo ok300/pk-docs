@@ -33,7 +33,7 @@ nav:
       - Intro: 01_pubky_sdk/00_intro.md
       - Get Started: 01_pubky_sdk/01_get_started.md
       - Initialize Client: 01_pubky_sdk/02_init_client.md
-      - Storage API: 01_pubky_sdk/07_storage_api.md
+      - Storage API: 01_pubky_sdk/03_storage_api.md
       - Homeserver API:
           - Signup: 01_pubky_sdk/03_signup.md
           - PUT - Store Data: 01_pubky_sdk/04_put.md
