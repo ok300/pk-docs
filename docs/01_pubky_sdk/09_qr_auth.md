@@ -23,6 +23,7 @@ The QR auth flow consists of three main steps: building capabilities, getting th
 ## Typical Usage
 
 This pattern is ideal for:
+
 - **Third-party apps** that need to access user data
 - **Keyless applications** where the app doesn't hold the user's private keys
 - **Cross-device authentication** where users sign in on one device to authorize another
