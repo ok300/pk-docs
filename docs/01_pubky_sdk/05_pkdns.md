@@ -7,7 +7,7 @@ PKDNS (Public Key DNS) allows you to resolve and publish `_pubky` records that m
 You can access the PKDNS client through a signer to perform PKDNS operations.
 
 ```rust
---8<-- "snippets/pubky/src/main.rs:pkdns_generic"
+--8<-- "snippets/pubky/src/lib.rs:pkdns_generic"
 ```
 
 The PKDNS client provides methods for resolving and publishing homeserver records.
@@ -17,7 +17,7 @@ The PKDNS client provides methods for resolving and publishing homeserver record
 PKDNS is primarily used for homeserver discovery and management. You can resolve other users' homeservers and publish your own.
 
 ```rust
---8<-- "snippets/pubky/src/main.rs:pkdns_homeserver"
+--8<-- "snippets/pubky/src/lib.rs:pkdns_homeserver"
 ```
 
 ### Operations

@@ -8,7 +8,7 @@ The Pubky SDK provides two ways to access storage: public (read-only) and authen
 Public storage allows you to read publicly accessible data from any user without authentication.
 
 ```rust
---8<-- "snippets/pubky/src/main.rs:storage_public"
+--8<-- "snippets/pubky/src/lib.rs:storage_public"
 ```
 
 Key features:
@@ -27,7 +27,7 @@ Key features:
 Session storage allows you to read and write your own data using an authenticated session. This is used when you need to store or modify data on your homeserver.
 
 ```rust
---8<-- "snippets/pubky/src/main.rs:storage_session"
+--8<-- "snippets/pubky/src/lib.rs:storage_session"
 ```
 
 Key features:
