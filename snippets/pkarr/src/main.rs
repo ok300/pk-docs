@@ -9,44 +9,6 @@ use reqwest::Method;
 fn main() {}
 
 #[allow(dead_code)]
-// --8<-- [start:resolve_record]
-async fn resolve_record() -> Result<(), Box<dyn Error>> {
-    let client = Client::builder().build()?;
-
-    let pk = "9fdaa3b3cb04f24328975a4862419d2a2a46639c33659a101f653457a40b9d16";
-
-    match client.resolve(&pk.parse()?).await {
-        Some(signed_packet) => println!("Resolved packet: {signed_packet:?}"),
-        None => println!("No record found for the public key"),
-    }
-
-    Ok(())
-}
-// --8<-- [end:resolve_record]
-
-#[allow(dead_code)]
-// --8<-- [start:publish_record]
-async fn publish_record() -> Result<(), Box<dyn Error>> {
-    let client = Client::builder().build()?;
-
-    // Generate a new keypair.
-    let keypair = Keypair::random();
-
-    // Create a signed packet with a TXT record.
-    let signed_packet = SignedPacket::builder()
-        .txt("_proto".try_into()?, "foo=bar".try_into()?, 30)
-        .build(&keypair)?;
-
-    match client.publish(&signed_packet, None).await {
-        Ok(()) => println!("Published successfully!"),
-        Err(e) => println!("Failed to publish: {e}"),
-    }
-
-    Ok(())
-}
-// --8<-- [end:publish_record]
-
-#[allow(dead_code)]
 // --8<-- [start:connect_pkdns_tls]
 async fn connect_pkdns_tls() -> Result<(), Box<dyn Error>> {
     // Example URL using a Pkarr public key (PKDNS TLS)

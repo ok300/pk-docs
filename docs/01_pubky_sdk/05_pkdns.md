@@ -3,6 +3,18 @@
 PKDNS (Public Key DNS) allows you to resolve and publish `_pubky` records that map public keys to homeservers.
 
 
+## Resolve Record
+
+To resolve a record, you need a `PublicKey`. The `resolve` method on the `Client` will return a `SignedPacket` if one is found for the given `PublicKey`.
+
+TODO
+
+## Publish Record
+
+To publish a record, you need a `Keypair` to sign the packet. The `publish` method on the `Client` will publish the `SignedPacket` to the DHT.
+
+TODO
+
 
 ### Operations
 
