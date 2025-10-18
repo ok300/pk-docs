@@ -21,13 +21,12 @@ markdown_extensions:
 
 nav:
   - Intro: index.md
-  - PKARR:
-      - PKDNS TLS: 00_pkarr/09_pkdns_tls.md
   - Pubky SDK:
       - Intro: 01_pubky_sdk/00_intro.md
       - Get Started: 01_pubky_sdk/01_get_started.md
       - Initialize Client: 01_pubky_sdk/02_init_client.md
-      - PKDNS API: 01_pubky_sdk/05_pkdns.md
+      - PKDNS: 01_pubky_sdk/05_pkdns.md
+      - PKDNS TLS: 01_pubky_sdk/09_pkdns_tls.md
       - Storage API: 01_pubky_sdk/03_storage_api.md
       - Homeserver API:
           - Signup: 01_pubky_sdk/04_homeserver_api/03_signup.md

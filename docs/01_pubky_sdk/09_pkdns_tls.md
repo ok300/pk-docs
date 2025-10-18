@@ -6,9 +6,7 @@ PKDNS TLS (Public Key DNS over TLS) provides a secure DNS-over-TLS service for r
 
 To connect to a PKDNS TLS endpoint, you can use a Pkarr public key as the URL with `reqwest`. The PKARR client integration with `reqwest` automatically handles the DNS resolution and TLS connection.
 
-```rust
---8<-- "snippets/pkarr/src/main.rs:connect_pkdns_tls"
-```
+TODO
 
 This example demonstrates:
 
@@ -20,9 +18,7 @@ This example demonstrates:
 
 To serve your own PKDNS TLS service, you can run an HTTP server with TLS using your keypair and publish the server information to the DHT. This makes your service accessible via its public key.
 
-```rust
---8<-- "snippets/pkarr/src/main.rs:serve_pkdns_tls"
-```
+TODO
 
 This example demonstrates:
 
@@ -33,7 +29,7 @@ This example demonstrates:
 
 !!! note
     When deploying a PKDNS TLS service in production, ensure you:
-    
+
     - Republish the DNS records periodically (recommended: every hour) and when the server address changes
     - Use a public IP address if you want the service to be accessible from other networks
     - Configure appropriate timeout and connection limits
