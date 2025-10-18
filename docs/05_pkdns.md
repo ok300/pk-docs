@@ -2,23 +2,19 @@
 
 PKDNS (Public Key DNS) allows you to resolve and publish `_pubky` records that map public keys to homeservers.
 
-## Generic PKDNS Client
 
-You can access the PKDNS client through a signer to perform PKDNS operations.
+## Resolve Record
 
-```rust
---8<-- "snippets/pubky/src/main.rs:pkdns_generic"
-```
+To resolve a record, you need a `PublicKey`. The `resolve` method on the `Client` will return a `SignedPacket` if one is found for the given `PublicKey`.
 
-The PKDNS client provides methods for resolving and publishing homeserver records.
+TODO
 
-## Homeserver Operations
+## Publish Record
 
-PKDNS is primarily used for homeserver discovery and management. You can resolve other users' homeservers and publish your own.
+To publish a record, you need a `Keypair` to sign the packet. The `publish` method on the `Client` will publish the `SignedPacket` to the DHT.
 
-```rust
---8<-- "snippets/pubky/src/main.rs:pkdns_homeserver"
-```
+TODO
+
 
 ### Operations
 

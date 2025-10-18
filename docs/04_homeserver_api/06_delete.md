@@ -3,7 +3,7 @@
 To delete data from a homeserver, use the `delete` method on the session's storage. Like PUT, this requires an authenticated session.
 
 ```rust
---8<-- "snippets/pubky/src/main.rs:delete"
+--8<-- "snippets/pubky/src/lib.rs:delete"
 ```
 
 The DELETE operation:

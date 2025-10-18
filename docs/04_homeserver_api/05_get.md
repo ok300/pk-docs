@@ -3,7 +3,7 @@
 To retrieve data from a homeserver, use the `get` method on the `PublicStorage` API. This allows you to read data from any user without authentication.
 
 ```rust
---8<-- "snippets/pubky/src/main.rs:get"
+--8<-- "snippets/pubky/src/lib.rs:get"
 ```
 
 The GET operation:
@@ -19,7 +19,7 @@ The GET operation:
 To list the contents of a directory:
 
 ```rust
---8<-- "snippets/pubky/src/main.rs:list"
+--8<-- "snippets/pubky/src/lib.rs:list"
 ```
 
 Directory listings work the same way - just use a path ending with `/` to list the contents of that directory.

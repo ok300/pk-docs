@@ -7,7 +7,7 @@ QR Auth enables keyless authentication for third-party apps. Users can authorize
 The QR auth flow consists of three main steps: building capabilities, getting the authorization URL, and awaiting approval.
 
 ```rust
---8<-- "snippets/pubky/src/main.rs:qr_auth"
+--8<-- "snippets/pubky/src/lib.rs:qr_auth"
 ```
 
 ## How It Works

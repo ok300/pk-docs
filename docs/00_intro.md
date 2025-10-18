@@ -1,4 +1,4 @@
-# Pubky
+# Pubky SDK
 
 Pubky is an open protocol for per-public-key backends for censorship resistant web applications. It combines PKARR (a censorship resistant public-key based alternative to DNS) with conventional web technologies to keep users in control of their identities and data.
 

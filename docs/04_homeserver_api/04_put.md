@@ -3,7 +3,7 @@
 To store data on a homeserver, use the `put` method on the session's storage. In Pubky, you work with a `PubkySession` that provides authenticated access.
 
 ```rust
---8<-- "snippets/pubky/src/main.rs:put"
+--8<-- "snippets/pubky/src/lib.rs:put"
 ```
 
 The PUT operation:
