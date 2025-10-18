@@ -1,40 +1,12 @@
-use std::{error::Error, net::SocketAddr, sync::Arc, time::Duration};
+use std::{error::Error, net::SocketAddr, sync::Arc};
 
 use axum::{Router, routing::get};
 use axum_server::tls_rustls::RustlsConfig;
-use pkarr::InMemoryCache;
 use pkarr::dns::rdata::SVCB;
 use pkarr::{Client, Keypair, PublicKey, SignedPacket};
 use reqwest::Method;
-use url::Url;
 
 fn main() {}
-
-#[allow(dead_code)]
-// --8<-- [start:init_pkarr_client]
-fn init_client() -> Result<Client, Box<dyn Error>> {
-    let client = Client::builder().build()?;
-    Ok(client)
-}
-// --8<-- [end:init_pkarr_client]
-
-#[allow(dead_code)]
-// --8<-- [start:init_pkarr_client_with_opts]
-fn init_client_with_opts() -> Result<Client, Box<dyn Error>> {
-    let client = Client::builder()
-        // Set a custom cache size.
-        .cache(Arc::new(InMemoryCache::new(5_000.try_into()?)))
-        // Set custom relays.
-        .relays(&[Url::parse("https://my-relay.com")?])?
-        // Set custom bootstrap nodes.
-        .bootstrap(&["127.0.0.1:6881"])
-        // Set a custom request timeout.
-        .request_timeout(Duration::from_secs(10))
-        .build()?;
-
-    Ok(client)
-}
-// --8<-- [end:init_pkarr_client_with_opts]
 
 #[allow(dead_code)]
 // --8<-- [start:resolve_record]
