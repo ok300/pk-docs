@@ -19,7 +19,5 @@ jobs:
 
       - name: Check Rust snippets
         run: |
-          cd snippets/pkarr
-          cargo check
-          cd ../pubky
+          cd snippets/pubky
           cargo check

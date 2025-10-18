@@ -20,20 +20,18 @@ markdown_extensions:
   - pymdownx.snippets
 
 nav:
-  - Intro: index.md
-  - Pubky SDK:
-      - Intro: 01_pubky_sdk/00_intro.md
-      - Get Started: 01_pubky_sdk/01_get_started.md
-      - Initialize Client: 01_pubky_sdk/02_init_client.md
-      - PKDNS: 01_pubky_sdk/05_pkdns.md
-      - PKDNS TLS: 01_pubky_sdk/09_pkdns_tls.md
-      - Storage API: 01_pubky_sdk/03_storage_api.md
-      - Homeserver API:
-          - Signup: 01_pubky_sdk/04_homeserver_api/03_signup.md
-          - PUT - Store Data: 01_pubky_sdk/04_homeserver_api/04_put.md
-          - GET - Retrieve Data: 01_pubky_sdk/04_homeserver_api/05_get.md
-          - DELETE - Remove Data: 01_pubky_sdk/04_homeserver_api/06_delete.md
-      - 3rd Party QR Authorization: 01_pubky_sdk/09_qr_auth.md
+  - Intro: 00_intro.md
+  - Get Started: 01_get_started.md
+  - Initialize Client: 02_init_client.md
+  - PKDNS: 05_pkdns.md
+  - PKDNS TLS: 09_pkdns_tls.md
+  - Storage API: 03_storage_api.md
+  - Homeserver API:
+      - Signup: 04_homeserver_api/03_signup.md
+      - PUT - Store Data: 04_homeserver_api/04_put.md
+      - GET - Retrieve Data: 04_homeserver_api/05_get.md
+      - DELETE - Remove Data: 04_homeserver_api/06_delete.md
+  - 3rd Party QR Authorization: 09_qr_auth.md
   - Pubky App:
       - Intro: 02_pubky_app/00_intro.md
   - Build Your Own App:
