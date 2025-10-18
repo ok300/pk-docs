@@ -1,4 +1,7 @@
-# DHT Records
+# PKDNS Records
+
+A PKARR client can read (resolve) and write (publish) DHT records.
+
 
 ## Resolve Record
 
