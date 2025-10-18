@@ -28,13 +28,13 @@ nav:
       - Intro: 01_pubky_sdk/00_intro.md
       - Get Started: 01_pubky_sdk/01_get_started.md
       - Initialize Client: 01_pubky_sdk/02_init_client.md
+      - PKDNS API: 01_pubky_sdk/05_pkdns.md
       - Storage API: 01_pubky_sdk/03_storage_api.md
       - Homeserver API:
           - Signup: 01_pubky_sdk/04_homeserver_api/03_signup.md
           - PUT - Store Data: 01_pubky_sdk/04_homeserver_api/04_put.md
           - GET - Retrieve Data: 01_pubky_sdk/04_homeserver_api/05_get.md
           - DELETE - Remove Data: 01_pubky_sdk/04_homeserver_api/06_delete.md
-      - PKDNS API: 01_pubky_sdk/05_pkdns.md
       - 3rd Party QR Authorization: 01_pubky_sdk/09_qr_auth.md
   - Pubky App:
       - Intro: 02_pubky_app/00_intro.md
