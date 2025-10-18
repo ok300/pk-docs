@@ -1,7 +1,5 @@
 use pubky::prelude::*;
 
-fn main() {}
-
 #[allow(dead_code)]
 // --8<-- [start:init_pubky_client]
 fn init_client() -> pubky::Result<Pubky> {
@@ -51,7 +49,7 @@ async fn put() -> pubky::Result<()> {
     // The homeserver's public key
     let homeserver = PublicKey::try_from("o4dksfbqk85ogzdb5osziw6befigbuxmuxkuxq8434q89uj56uyy")
         .expect("Valid homeserver public key");
-    
+
     // Sign up to the homeserver
     let session = signer.signup(&homeserver, None).await?;
 
@@ -99,7 +97,7 @@ async fn delete() -> pubky::Result<()> {
     // The homeserver's public key
     let homeserver = PublicKey::try_from("o4dksfbqk85ogzdb5osziw6befigbuxmuxkuxq8434q89uj56uyy")
         .expect("Valid homeserver public key");
-    
+
     // Sign up to the homeserver
     let session = signer.signup(&homeserver, None).await?;
 
@@ -123,7 +121,7 @@ async fn list() -> pubky::Result<()> {
 
     // List contents of a path
     let url = format!("pubky://{}/pub/", user_pubkey);
-    
+
     let response = pubky.public_storage().get(url).await?;
     let listing = response.text().await?;
 
@@ -147,7 +145,9 @@ async fn storage_session() -> pubky::Result<()> {
     let storage = session.storage();
 
     // Write data
-    storage.put("/pub/my.app/data.txt", "Hello from session storage").await?;
+    storage
+        .put("/pub/my.app/data.txt", "Hello from session storage")
+        .await?;
 
     // Read data
     let text = storage.get("/pub/my.app/data.txt").await?.text().await?;
@@ -183,7 +183,7 @@ async fn storage_public() -> pubky::Result<()> {
         .limit(10)
         .send()
         .await?;
-    
+
     for entry in entries {
         println!("Entry: {}", entry.to_pubky_url());
     }
@@ -227,9 +227,13 @@ async fn pkdns_homeserver() -> pubky::Result<()> {
     println!("Published homeserver record");
 
     // Force republish (e.g., for homeserver migration)
-    let new_homeserver = PublicKey::try_from("o4dksfbqk85ogzdb5osziw6befigbuxmuxkuxq8434q89uj56uyy")
-        .expect("Valid homeserver public key");
-    signer.pkdns().publish_homeserver_force(Some(&new_homeserver)).await?;
+    let new_homeserver =
+        PublicKey::try_from("o4dksfbqk85ogzdb5osziw6befigbuxmuxkuxq8434q89uj56uyy")
+            .expect("Valid homeserver public key");
+    signer
+        .pkdns()
+        .publish_homeserver_force(Some(&new_homeserver))
+        .await?;
     println!("Force published homeserver record");
 
     // Fetch your own homeserver record
@@ -260,7 +264,7 @@ async fn qr_auth() -> pubky::Result<()> {
     // Await approval from the signing device
     // (In real usage, this would wait for the user to approve on their device)
     let _session = flow.await_approval().await?;
-    
+
     println!("Auth approved! Session ready.");
 
     Ok(())
