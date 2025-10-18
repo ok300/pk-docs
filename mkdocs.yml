@@ -20,7 +20,7 @@ markdown_extensions:
   - pymdownx.snippets
 
 nav:
-  - Intro: 00_intro.md
+  - Intro: index.md
   - Get Started: 01_get_started.md
   - Initialize Client: 02_init_client.md
   - PKDNS: 05_pkdns.md
