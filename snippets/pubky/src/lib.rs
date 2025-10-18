@@ -193,23 +193,6 @@ async fn storage_public() -> pubky::Result<()> {
 // --8<-- [end:storage_public]
 
 #[allow(dead_code)]
-// --8<-- [start:pkdns_generic]
-fn pkdns_generic() -> pubky::Result<()> {
-    let pubky = Pubky::new()?;
-    let keypair = Keypair::random();
-    let signer = pubky.signer(keypair);
-
-    // Get the PKDNS client from the signer
-    let _pkdns = signer.pkdns();
-
-    // The pkdns client can be used to publish and resolve records
-    println!("PKDNS client ready");
-
-    Ok(())
-}
-// --8<-- [end:pkdns_generic]
-
-#[allow(dead_code)]
 // --8<-- [start:pkdns_homeserver]
 async fn pkdns_homeserver() -> pubky::Result<()> {
     let pubky = Pubky::new()?;
