@@ -25,8 +25,7 @@ nav:
       - Intro: 00_pkarr/00_intro.md
       - Get Started: 00_pkarr/01_get_started.md
       - Initialize Client: 00_pkarr/02_init_client.md
-      - DHT Records: 00_pkarr/07_dht_records.md
-      - PKDNS: 00_pkarr/08_pkdns.md
+      - PKDNS Records: 00_pkarr/08_pkdns_records.md
       - PKDNS TLS: 00_pkarr/09_pkdns_tls.md
   - Pubky SDK:
       - Intro: 01_pubky_sdk/00_intro.md
