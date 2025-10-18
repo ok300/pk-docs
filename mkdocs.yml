@@ -22,7 +22,6 @@ markdown_extensions:
 nav:
   - Intro: index.md
   - PKARR:
-      - Intro: 00_pkarr/00_intro.md
       - PKDNS Records: 00_pkarr/08_pkdns_records.md
       - PKDNS TLS: 00_pkarr/09_pkdns_tls.md
   - Pubky SDK:
